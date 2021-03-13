@@ -1,0 +1,42 @@
+<section>
+    <form class="search float-right" action="/search/" method="GET">
+        <label>Search: </label>
+        <input type="text" class="search" name="search" placeholder="Search...">
+        <input type="submit" class="btn btn-info" value="Search">
+    </form>
+</section>
+<br>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4" style="text-align: center;">Video Tutorials</h1>
+        <p class="lead" style="text-align: center;">Start Self-Study Today: It Will Change Your Life</p>
+    </div>
+</div>
+<div>
+    <h1 class="text-center">Guest User: These Are The Top 3 Courses</h1>
+    <br>
+                    
+    <div class="container mt-3">
+        <div class="row ">
+        <div class="row d-flex justify-content-center">
+            
+        {{!-- THIS RENDERS EACH VIDEO BLOCK IN YOUR MONGO DB --}}
+        {{#each video}}
+        <div class="card mb-4">
+            <div class="card-deck">
+                <img class="card-img-top"
+                        src="{{this.imageUrl}}"
+                        alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align: center;">{{this.title}}</h4>
+                    </div>
+                </div>
+        </div>
+        {{!-- OR NOTHING IF NO VIDEOS FOUND... --}}
+        {{else}}
+        <h4 class="text-center">No courses...</h4>
+        {{/each}}
+        </div>
+    </div>
+</div>
